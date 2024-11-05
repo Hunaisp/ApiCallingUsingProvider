@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:providerapi/Repository/ModelClass/CategoryModel.dart';
 
 import '../Repository/Api/api.dart';
-import '../Repository/ModelClass/CategoryModel.dart';
 
 
 class CategoryProvider with ChangeNotifier {

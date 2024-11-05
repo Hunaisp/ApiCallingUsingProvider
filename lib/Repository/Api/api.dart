@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 import '../ModelClass/CategoryModel.dart';
+import '../ModelClass/ProductModel.dart';
 import '../ModelClass/LoginModel.dart';
 import 'api_client.dart';
 
@@ -21,9 +22,20 @@ class Api {
 
     return UserModel.fromJson(jsonDecode(response.body));
   }
-
-  //category api
+//category api
   Future<List<CategoryModel>>  getCategory(
+
+      ) async {
+    String path = 'https://prethewram.pythonanywhere.com/api/Top_categories/';
+    var body = {};
+    Response response = await apiClient.invokeAPI(path, 'GET',body);
+
+
+
+    return CategoryModel.listFromJson(jsonDecode(response.body));
+  }
+  //product api
+  Future<List<ProductModel>>  getProducts(
 
       ) async {
     String path = 'https://prethewram.pythonanywhere.com/api/parts_categories/';
@@ -32,6 +44,7 @@ class Api {
 
 
 
-    return CategoryModel.listFromJson(jsonDecode(response.body));
+    return ProductModel.listFromJson(jsonDecode(response.body));
   }
+
 }
