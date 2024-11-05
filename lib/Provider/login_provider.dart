@@ -14,7 +14,7 @@ class AuthProvider with ChangeNotifier {
   String? get errorMessage => _errorMessage;
 
   Future<void> login(String email, String password) async {
-    final token = await _authApi.mesKartSignup(email, password);
+    final token = await _authApi.login(email, password);
 
     if (token != null) {
       _user = UserModel();

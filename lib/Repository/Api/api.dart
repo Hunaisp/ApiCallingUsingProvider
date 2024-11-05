@@ -8,7 +8,7 @@ import 'api_client.dart';
 class MesCartApi {
   ApiClient apiClient = ApiClient();
 
-  Future<UserModel>  mesKartSignup(
+  Future<UserModel>  login(
     String email,
     String password,
   ) async {
