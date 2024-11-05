@@ -6,7 +6,7 @@ import '../Repository/ModelClass/LoginModel.dart';
 
 
 class AuthProvider with ChangeNotifier {
-  final MesCartApi _authApi = MesCartApi();
+  final Api _authApi = Api();
   UserModel? _user;
   String? _errorMessage;
 

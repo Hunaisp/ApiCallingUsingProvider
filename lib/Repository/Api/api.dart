@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
+import '../ModelClass/CategoryModel.dart';
 import '../ModelClass/LoginModel.dart';
 import 'api_client.dart';
 
-class MesCartApi {
+class Api {
   ApiClient apiClient = ApiClient();
-
+//login api
   Future<UserModel>  login(
     String email,
     String password,
@@ -19,5 +20,18 @@ class MesCartApi {
 
 
     return UserModel.fromJson(jsonDecode(response.body));
+  }
+
+  //category api
+  Future<List<CategoryModel>>  getCategory(
+
+      ) async {
+    String path = 'https://prethewram.pythonanywhere.com/api/parts_categories/';
+    var body = {};
+    Response response = await apiClient.invokeAPI(path, 'GET',body);
+
+
+
+    return CategoryModel.listFromJson(jsonDecode(response.body));
   }
 }
